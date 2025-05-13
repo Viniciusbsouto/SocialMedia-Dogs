@@ -34,13 +34,10 @@ export const UserStorage = ({ children }) => {
   async function getUser(token) {
     const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
 
     setData(json);
     setlogin(true);
-    console.log(json);
   }
 
   async function userLogin(username, password) {
