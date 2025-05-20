@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './UserHeader.module.css';
 import UserHeaderNav from './UserHeaderNav';
+import styles from './UserHeader.module.css';
 import { useLocation } from 'react-router-dom';
 
 const UserHeader = () => {
@@ -18,9 +18,9 @@ const UserHeader = () => {
         break;
       default:
         setTitle('Minha Conta');
-        break;
     }
   }, [location]);
+
   return (
     <header className={styles.header}>
       <h1 className="title">{title}</h1>

@@ -4,8 +4,8 @@ import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFetch';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
-import { PHOTO_POST } from '../../api';
 import Error from '../Helper/Error';
+import { PHOTO_POST } from '../../Api';
 import { useNavigate } from 'react-router-dom';
 
 const UserPhotoPost = () => {
@@ -19,6 +19,7 @@ const UserPhotoPost = () => {
   React.useEffect(() => {
     if (data) navigate('/conta');
   }, [data, navigate]);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
@@ -30,7 +31,6 @@ const UserPhotoPost = () => {
     const token = window.localStorage.getItem('token');
     const { url, options } = PHOTO_POST(formData, token);
     request(url, options);
-    console.log(request);
   }
 
   function handleImgChange({ target }) {
@@ -39,6 +39,7 @@ const UserPhotoPost = () => {
       raw: target.files[0],
     });
   }
+
   return (
     <section className={`${styles.photoPost} animeLeft`}>
       <form onSubmit={handleSubmit}>
